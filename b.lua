@@ -349,6 +349,30 @@ macro(
     end
 )
 
+AntiRed.macro =
+    macro(
+    100,
+    "ANT-RED",
+    function()
+        local spectators = getSpectators(true)
+        local monstersNextTo = getMonstersInRange(pos(), 5)
+        for _, creature in pairs(spectators) do
+            if (creature:getName() ~= player:getName() and creature:isPlayer() and creature:getEmblem() ~= 1) then
+                AntiRed.time = now + AntiRed.delayTime
+                break
+            end
+        end
+        if (monstersNextTo >= 2 and AntiRed.time < now and player:getSkull() < 3) then
+            say(AntiRed.areaSpell)
+        elseif (g_game.isAttacking() and (AntiRed.time >= now or player:getSkull() >= 3 or monstersNextTo < 2)) then
+            local arraySpells = AntiRed.comboSpells:explode(",")
+            for _, spell in ipairs(arraySpells) do
+                say(spell)
+            end
+        end
+    end
+)
+
 macro(
     100,
     "AREA  FULL",
