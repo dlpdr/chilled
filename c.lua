@@ -1,3 +1,5 @@
+setDefaultTab("BR")
+
 macro(
     100,
     "AREA  FULL",
