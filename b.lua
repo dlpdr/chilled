@@ -349,8 +349,7 @@ macro(
     end
 )
 
-AntiRed.macro =
-    macro(
+macro(
     100,
     "ANT-RED",
     function()
